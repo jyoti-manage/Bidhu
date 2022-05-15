@@ -1,79 +1,151 @@
+{% extends 'main/basic.html' %}
+
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-   <link rel="stylesheet" href="{% static 'index.css' %}">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-</head>
-<body>
-  
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Biddu</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Blog</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled">Disabled</a>
-            </li>
+<title>{% block title %}Biddu{% endblock %}</title>
+
+{% block body %}
+
+
+ <form action="searchList/" method="post" class="form">{% csrf_token %}   
+  <div class="search">
+ 
+  <input class="destination size" type="text" placeholder="Search City.." name="search">
+  
+  <select class ="type_of_residency size" id="type_of_residency" name="type_of_residency">
+    <option value="#" style="background-color: #e9e9e9;">Type of Residency</option>
+    <option value="rent" class="drop-down-option">Rent</option>
+    <option value="room" class="drop-down-option">Room</option>
+    <option value="flat" class="drop-down-option">Flat</option>
+    <option value="pg" class="drop-down-option">PG</option>
+  </select>
+
+
+  <select class ="size type_of_room" id="type_of_room" name="type_of_room">
+    <option style="background-color: #e9e9e9;"value="#">Type of Room</option>
+    <option value="rent" class="drop-down-option">Single Room</option>
+    <option value="room" class="drop-down-option">Double Room</option>
+    <option value="flat" class="drop-down-option">BHK</option>
+  </select>
+
+  
+    <span class="price-range">
+    <label for="vol">Select Budget:</label>
+    <input type="range" id="vol" name="vol" min="0" max="100000">
+    </span>
+
+    <select class ="size gender" id="gender" name="gender">
+      <option style="background-color: #e9e9e9;" value="#">For: </option>
+      <option value="boys" class="drop-down-option">Boys</option>
+      <option value="girls" class="drop-down-option">Girls</option>
+      <option value="common" class="drop-down-option">Common</option>
+    </select>
+
+    <button class="search_btn" type="submit"><i class="fa fa-search">Search</i></button>
+    </div>
+ 
+</form>
+
+{% block content %} {% endblock %}
+<section class="about">
+    <h3>About Book My PG</h3>
+  <div class="visible">
+    <p>
+      Hi Student i'm your biddu ;) (biddu means friend) 
+          i'm here to help you to find your essential needs like rental rooms/pg's/mess etc.
+          In a location which gonna be selected by you.
+          You just tell me your needs and i will show you best results accordingly.
+    </p>
+  </div>
+  <div class="more">Read More</div>
+  <div class="hidden" style="display: none;">
+      Get to know us
+
+          How Biddu comes from thought to the physical world ;
+
+          “Necessity is the mother of invention”
+          Similarly when we moved to a completely new city, there were a lot of things which seemed to be a very difficult task. If you are a student then these difficulties are doubled.
+
+          And one of these tasks is to find suitable and affordable accommodation.
+
+          Just think about the process of finding a room/PG/rented flat walking hours for 2-3 days without any direction,roaming in streets searching “TO LET” hoardings on gates and after checking 30-35 rooms you find a room.
+
+          Now think of a channel which connects you to the PGs and rooms;
+          - according to your needs,
+          -in your selected area,
+          -within your budget,
+          -without any physical work.
+
+          Now which way would you prefer?
+          Of Course the second wala…… 
+
+
+          So, @biddu.com we provide that channel to you..
+          Our mission is to cut off the tiredy task of finding you rooms from ground to phones and PCs .
+
+          NOW shift to new place TENSION FREE.
+    </div>
+  
+</section>
+
+<section class="services">
+  <h1>Our Services</h1>
+  <div class="carousel"
+        data-flickity='{ "wrapAround": true }'>
+        <div class="carousel-cell"> <img src="{% static '/main/serach.png' %}" alt="">
+          <div class="services_item">Search And Get Best Place According to Your Choice</div></div>
+        <div class="carousel-cell"> <img src="{% static '/main/download.jpg' %}" alt="">
+          <div class="services_item">Book Online Your Choice From Anywhere</div></div>
+        <div class="carousel-cell"> <img src="{% static '/main/cppar.jpg' %}" alt="">
+          <div class="services_item">Compare Our Site With The Others</div></div>
+        
+        
+        
+   </div>
+
+</section>
+
+
+<!-- Footer Section -->
+
+<div class="footer ">
+  <footer>
+      <div class="footer-basic ">
+          <div class="social ">
+              <br>
+              <a href="https://www.instagram.com/cloudcounselage/ "><i class="icon ion-social-instagram"></i></a>
+              <a href="https://twitter.com/CloudCounselage "><i class="icon ion-social-twitter"></i></a>
+              <a href="https://www.facebook.com/CloudCounselage/ "><i class="icon ion-social-facebook"></i></a></div>
+          <ul class="list-inline ">
+              <li class="list-inline-item "><a href="# ">Home</a></li>
+              <li class="list-inline-item "><a href="#">Services</a></li>
+              <li class="list-inline-item "><a href="#">About</a></li>
+              <li class="list-inline-item "><a>Privacy Policy</a></li>
+              <br><br>
           </ul>
-        </div>
+          <p class="copyright ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, magnam distinctio id odit soluta fuga<br> consequatur officiis voluptatem architecto ab enim dicta, et natus ut cumque cum reiciendis repudiandae fugiat.<br><br></p>
       </div>
-    </nav>
+</div>
+</footer>
+</div>
 
-    <div class="topnav body">
-      <div class="search-container mx-2 my-3">
-        <form action="/action_page.php">
-          <input class="input_search" type="text" placeholder="Search.." name="search">
-          <button type="submit"><i class="fa fa-search"></i>Search</button>
-          
-         
-          <select id="cars" name="cars">
-            <option value="#">Type of Residency</option>
-              <option value="volvo">Volvo</option>
-              <option value="saab">Saab</option>
-              <option value="fiat">Fiat</option>
-              <option value="audi">Audi</option>
-          </select>
-         
-        </form>
-       
-      </div>
-      <!-- <span class="dropdown">
-        <button class="dropbtn">Dropdown</button>
-        <div class="dropdown-content">
-        <a href="#">Link 1</a>
-        <a href="#">Link 2</a>
-        <a href="#">Link 3</a>
-        </div>
-      </span> -->
-    </div> 
-  
-<!-- Dropdown -->
+<a href="main/contact"><img class ="contact" src="{% static '/main/contact.jpg' %}" alt="cintact image"></a>
+
+{% endblock %}
 
 
+{% block js %}
+<script>
+$(".more").click(function(){
+  $(".more").hide();
+  $(".hidden").show();
 
+});
 
-</body>
+</script>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</html>
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+{% endblock %}

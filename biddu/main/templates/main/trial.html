@@ -1,0 +1,361 @@
+@media only screen and (min-width: 1051px) {
+  
+  .form{
+    margin-top: 100px;
+
+  }
+ 
+
+}
+  
+
+  @media only screen and (min-width: 1050px) and (max-width: 1214px)  {
+
+    .form{
+    margin-top: 50px;
+
+  }
+    
+     
+    .size{
+      font-size: small;
+    }
+
+    
+    }
+
+    @media only screen and (min-width:670px) and  (max-width: 1050px){
+    
+    .search{
+      grid-template-columns: repeat(2,1fr);
+      display: grid;
+      grid-gap:2px;
+    }
+
+    .destination{
+    width: auto;   
+}
+ .type_of_residency {
+    width: auto;
+}
+
+.type_of_room {
+    width: auto;
+}
+
+.price-range
+{ 
+    font-size:inherit;
+    width: auto;
+
+}
+
+.gender
+{
+    width: auto;
+   
+}
+
+
+
+.search_btn{
+  width: auto;
+  
+} 
+
+    }
+
+    @media screen  and (min-width: 992px){
+
+      .form{
+    margin-top: 20px;
+
+  }
+
+      .sign{
+      position: absolute;
+    right: 10px;
+      }
+
+      .log{
+      position: absolute;
+    right: 80px;
+      }
+      
+    }
+
+    @media only screen and (max-width: 670px)  {
+
+      .form{
+    margin-top: 20px;
+
+  }
+
+
+.search{
+display: flex;
+flex-direction: column;
+
+}
+
+.destination{
+width: 100%;
+margin: 2px; 
+text-align: center;
+}
+
+.type_of_residency {
+width: 100%;
+margin: 2px; 
+text-align: center;
+}
+
+.type_of_room {
+width: 100%;
+text-align: center;
+margin: 2px; 
+}
+
+.price-range
+{ 
+font-size: medium;
+width: 100%;
+margin: 2px; 
+text-align: center;
+
+}
+
+.gender
+{
+text-align: center;
+width: 100%;
+margin: 2px; 
+
+}
+
+.search_btn{
+width: 100%;
+margin: 2px; 
+
+} 
+
+
+
+}   
+
+    
+ </style>
+
+<body>
+    
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="mx-3 navbar-brand" href="#">Biddu</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link mx-5" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-5" href="#">WatchList</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled mx-5" href="#">My Favorite</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled mx-5" href="#">Memes</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link mx-5" href="#">Help</a>
+          </li>
+          <li class="nav-item log" >
+            <a class="nav-link" href="{% url 'app:login' %}">Log-In</a>
+          </li>
+          <li class="nav-item sign">
+            <a class="nav-link" href="{% url 'app:register' %}">Sign-Up</a>
+          </li>
+          
+        </ul>
+
+      </div>
+    
+    </nav>
+    
+
+    
+        <form action="/action_page.php"class="form" >    
+          <div class="search">
+         
+          <input class="destination size" type="text" placeholder="Search City.." name="search">
+          
+          <select class ="type_of_residency size" id="type_of_residency" name="type_of_residency">
+            <option value="#" style="background-color: #e9e9e9;">Type of Residency</option>
+            <option value="rent" class="drop-down-option">Rent</option>
+            <option value="room" class="drop-down-option">Room</option>
+            <option value="flat" class="drop-down-option">Flat</option>
+            <option value="pg" class="drop-down-option">PG</option>
+        </select>
+        
+
+          <select class ="size type_of_room" id="type_of_room" name="type_of_room">
+            <option style="background-color: #e9e9e9;"value="#">Type of Room</option>
+            <option value="rent" class="drop-down-option">Single Room</option>
+            <option value="room" class="drop-down-option">Double Room</option>
+            <option value="flat" class="drop-down-option">BHK</option>
+          </select>
+
+          
+            <span class="price-range">
+            <label for="vol">Select Budget:</label>
+            <input type="range" id="vol" name="vol" min="0" max="100000">
+            </span>
+
+            <select class ="size gender" id="gender" name="gender">
+              <option style="background-color: #e9e9e9;" value="#">For: </option>
+              <option value="boys" class="drop-down-option">Boys</option>
+              <option value="girls" class="drop-down-option">Girls</option>
+              <option value="common" class="drop-down-option">Common</option>
+            </select>
+  
+            <button class="search_btn" type="submit"><i class="fa fa-search"></i> Search</button>
+            </div>
+         
+        </form>
+        {% block content %} {% endblock %}
+        <section class="about">
+            <h3>About Book My PG</h3>
+          <div class="visible">
+            <p>
+              Hi Student i'm your biddu ;) (biddu means friend) 
+                  i'm here to help you to find your essential needs like rental rooms/pg's/mess etc.
+                  In a location which gonna be selected by you.
+                  You just tell me your needs and i will show you best results accordingly.
+            </p>
+          </div>
+          <div class="more">Read More</div>
+          <div class="hidden" style="display: none;">
+              Get to know us
+
+                  How Biddu comes from thought to the physical world ;
+
+                  “Necessity is the mother of invention”
+                  Similarly when we moved to a completely new city, there were a lot of things which seemed to be a very difficult task. If you are a student then these difficulties are doubled.
+
+                  And one of these tasks is to find suitable and affordable accommodation.
+
+                  Just think about the process of finding a room/PG/rented flat walking hours for 2-3 days without any direction,roaming in streets searching “TO LET” hoardings on gates and after checking 30-35 rooms you find a room.
+
+                  Now think of a channel which connects you to the PGs and rooms;
+                  - according to your needs,
+                  -in your selected area,
+                  -within your budget,
+                  -without any physical work.
+
+                  Now which way would you prefer?
+                  Of Course the second wala…… 
+
+
+                  So, @biddu.com we provide that channel to you..
+                  Our mission is to cut off the tiredy task of finding you rooms from ground to phones and PCs .
+
+                  NOW shift to new place TENSION FREE.
+            </div>
+          
+        </section>
+
+        <section class="services">
+          <h1>Our Services</h1>
+          <div class="carousel"
+                data-flickity='{ "wrapAround": true }'>
+                <div class="carousel-cell"> <img src="{% static '/main/serach.png' %}" alt="">
+                  <div class="services_item">Search And Get Best Place According to Your Choice</div></div>
+                <div class="carousel-cell"> <img src="{% static '/main/download.jpg' %}" alt="">
+                  <div class="services_item">Book Online Your Choice From Anywhere</div></div>
+                <div class="carousel-cell"> <img src="{% static '/main/cppar.jpg' %}" alt="">
+                  <div class="services_item">Compare Our Site With The Others</div></div>
+                
+                
+                
+           </div>
+
+        </section>
+<!-- 
+        <div class='popup'>
+          <div class='cnt223'>
+           <h1>Move on into Admin Panel</h1>
+           <p>
+          If You are an Admin, Move into Admin Panal...
+           </p>
+          <button class='close'>Close</button>
+          
+          </div>
+        </div> -->
+      
+
+        <!-- Footer Section -->
+
+        <div class="footer ">
+          <footer>
+              <div class="footer-basic ">
+                  <div class="social ">
+                      <br>
+                      <a href="https://www.instagram.com/cloudcounselage/ "><i class="icon ion-social-instagram"></i></a>
+                      <a href="https://twitter.com/CloudCounselage "><i class="icon ion-social-twitter"></i></a>
+                      <a href="https://www.facebook.com/CloudCounselage/ "><i class="icon ion-social-facebook"></i></a></div>
+                  <ul class="list-inline ">
+                      <li class="list-inline-item "><a href="# ">Home</a></li>
+                      <li class="list-inline-item "><a href="#">Services</a></li>
+                      <li class="list-inline-item "><a href="#">About</a></li>
+                      <li class="list-inline-item "><a>Privacy Policy</a></li>
+                      <br><br>
+                  </ul>
+                  
+              </div>
+      </div>
+      </footer>
+      </div>
+
+      <a href=""><img class ="contact" src="{% static '/main/contact.jpg' %}" alt="cintact image"></a>
+</body>
+
+<!-- <script type="text/javascript" src="https://code.jquery.com/jquery-1.8.2.js"></script>
+
+<script type='text/javascript'>
+  $(function(){
+
+  $('.popup').show();
+  $('.close').click(function(){
+  $('.popup').hide();
+  return false;
+  });
+});
+
+  </script> -->
+
+
+<!-- bootstrap -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
+{% block js %}
+<script>
+  $(".more").click(function(){
+  $(".more").hide();
+  $(".hidden").show();
+
+});
+
+
+</script>
+{% endblock %}
+
+<!-- Pop Up form -->
+
+
+</html>

@@ -1,0 +1,11 @@
+{% extends 'main/index.html' %} {% block title%} Login Page{% endblock%} {% block content%}
+<div style="border: 1px solid black; margin: 110px 460px; width: 400px; height: 400px;  padding: 24px;"> 
+    <h1 style="text-align:center;">Login</h1>
+<br>
+    <form action="{% url 'app:index' %}" method="post">
+        {% csrf_token %} {{login_form.as_p}}<br>
+        <input style="text-align: center;  padding: 7px; margin-left: 160px; line-height: 16px;font-size: 20px;border: 1px solid black; padding:4px 14px;font-weight: 300px;" type="submit" value="Login">
+    </form>
+    {{login_error}}
+</div>
+{% endblock%}
